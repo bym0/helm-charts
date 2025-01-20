@@ -1,4 +1,6 @@
 ---
+openaiApiKey: ""
+
 controllers:
   # Configure the main controller
   main:
@@ -12,8 +14,8 @@ controllers:
           tag: 3.6.1
         # -- environment variables
         env:
-          # - name: OPENAI_API_KEY:
-          #   value: ...
+          - name: OPENAI_API_KEY:
+            value: "{{ .Values.openaiApiKey }}"
           - name: MEILI_ADDR
             value: http://meilisearch:7700
           - name: BROWSER_WEB_URL

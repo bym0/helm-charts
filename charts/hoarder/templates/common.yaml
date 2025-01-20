@@ -1,1 +1,3 @@
-{{ include "bjw-s.common.loader.all" . }}
+---
+{{/* Render the templates */}}
+{{- include "bjw-s.common.loader.all" . }}

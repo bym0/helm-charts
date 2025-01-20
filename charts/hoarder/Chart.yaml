@@ -1,10 +1,15 @@
+---
 apiVersion: v2
 name: hoarder
-description: A Helm chart for https://github.com/hoarder-app/hoarder
+description: Chart for Hoarder
 type: application
 version: 0.0.1
 appVersion: 0.21.0
-
+sources:
+  - https://github.com/hoarder-app/hoarder
+maintainers:
+  - name: bym0
+    email: timo@bergen.digital
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
