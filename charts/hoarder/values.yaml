@@ -1,9 +1,10 @@
 ---
-openaiApiKey: ""
-meiliMasterKey: ""
-nextAuthSecret: ""
-ingressDomain: ""
-volumeSize: 10Gi
+openaiApiKey: &openai_api_key ""
+meiliMasterKey: &meili_master_key ""
+nextAuthSecret: &nextauth_secret ""
+ingressDomain: &host "example.local"
+volumeSize: &volume_size 10Gi
+dataDir: &data_dir "/data"
 
 common:
   controllers:
@@ -21,19 +22,19 @@ common:
           # -- environment variables
           env:
             - name: OPENAI_API_KEY
-              value: "{{ .Values.openaiApiKey }}"
+              value: *openai_api_key
             - name: MEILI_ADDR
               value: http://meilisearch:7700
             - name: BROWSER_WEB_URL
               value: http://chrome:9222
             - name: DATA_DIR
-              value: &data_dir "/data"
+              value: *data_dir
             - name: MEILI_MASTER_KEY
-              value: &meili_master_key "{{ .Values.meiliMasterKey}}"
+              value: *meili_master_key
             - name: NEXTAUTH_URL
               value: &nextauth_url http://localhost:3000
             - name: NEXTAUTH_SECRET
-              value: &nextauth_secret "{{ .Values.nextAuthSecret }}"
+              value: *nextauth_secret
 
     chrome:
       enabled: true
@@ -42,7 +43,7 @@ common:
           # dependsOn: main
           image:
             # -- image repository
-            repository:  gcr.io/zenika-hub/alpine-chrome
+            repository: gcr.io/zenika-hub/alpine-chrome
             # -- image tag
             tag: 123
           # -- command
@@ -107,7 +108,7 @@ common:
       enabled: true
       className: ""
       hosts:
-        - host: &host "{{ .Values.ingressDomain }}"
+        - host: *host
           paths:
             - path: /
               pathType: Prefix
@@ -125,7 +126,7 @@ common:
       type: persistentVolumeClaim
       # storageClass: ""
       accessMode: ReadWriteOnce
-      size: "{{ .Values.volumeSize }}"
+      size: *volume_size
       advancedMounts:
         main:
           main:
