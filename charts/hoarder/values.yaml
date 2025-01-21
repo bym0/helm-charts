@@ -5,7 +5,6 @@ nextAuthSecret: "generateASuperSecretKey"
 ingressDomain: "example.local"
 nextAuthUrl: "http://localhost:3000"
 
-volumeSize: 10Gi
 dataDir: "/data"
 hoarderImageTag: "0.21.0"
 
@@ -72,6 +71,7 @@ common:
           env:
             - name: MEILI_NO_ANALYTICS
               value: true
+              # i dont know if thats needed
             - name: DATA_DIR
               value: "{{ .Values.dataDir }}"
             - name: MEILI_ADDR
@@ -131,7 +131,7 @@ common:
       type: persistentVolumeClaim
       # storageClass: ""
       accessMode: ReadWriteOnce
-      size: "{{ .Values.volumeSize }}"
+      size: 10Gi
       advancedMounts:
         main:
           main:
