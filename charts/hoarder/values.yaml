@@ -51,6 +51,7 @@ common:
           # -- command
           command:
             - chromium-browser
+            - --headless
             - --no-sandbox
             - --disable-gpu
             - --disable-dev-shm-usage
