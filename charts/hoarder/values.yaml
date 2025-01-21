@@ -1,12 +1,13 @@
 ---
-openaiApiKey: &openai_api_key ""
-meiliMasterKey: &meili_master_key ""
-nextAuthSecret: &nextauth_secret ""
-ingressDomain: &host "example.local"
-volumeSize: &volume_size 10Gi
-dataDir: &data_dir "/data"
+openaiApiKey: ""
+meiliMasterKey: "generateASuperSecretKey"
+nextAuthSecret: "generateASuperSecretKey"
+ingressDomain: "example.local"
+nextAuthUrl: "http://localhost:3000"
 
-hoarderImageTag: &hoarder_image_tag "0.21.0"
+volumeSize: 10Gi
+dataDir: "/data"
+hoarderImageTag: "0.21.0"
 
 common:
   controllers:
@@ -20,23 +21,23 @@ common:
             # -- image repository
             repository: ghcr.io/hoarder-app/hoarder
             # -- image tag
-            tag: *hoarder_image_tag
+            tag: "{{ .Values.hoarderImageTag }}"
           # -- environment variables
           env:
             - name: OPENAI_API_KEY
-              value: *openai_api_key
+              value: "{{ .Values.openaiApiKey }}"
             - name: MEILI_ADDR
               value: "http://{{ .Release.Name }}-meilisearch:7700"
             - name: BROWSER_WEB_URL
               value: "http://{{ .Release.Name }}-chrome:9222"
             - name: DATA_DIR
-              value: *data_dir
+              value: "{{ .Values.dataDir }}"
             - name: MEILI_MASTER_KEY
-              value: *meili_master_key
+              value: "{{ .Values.meiliMasterKey }}"
             - name: NEXTAUTH_URL
-              value: &nextauth_url http://localhost:3000
+              value: "{{ .Values.nextAuthUrl }}"
             - name: NEXTAUTH_SECRET
-              value: *nextauth_secret
+              value: "{{ .Values.nextAuthSecret }}"
 
     chrome:
       enabled: true
@@ -72,15 +73,15 @@ common:
             - name: MEILI_NO_ANALYTICS
               value: true
             - name: DATA_DIR
-              value: *data_dir
+              value: "{{ .Values.dataDir }}"
             - name: MEILI_ADDR
               value: "http://127.0.0.1:7700"
             - name: MEILI_MASTER_KEY
-              value: *meili_master_key
+              value: "{{ .Values.meiliMasterKey }}"
             - name: NEXTAUTH_URL
-              value: *nextauth_url
+              value: "{{ .Values.nextAuthUrl }}"
             - name: NEXTAUTH_SECRET
-              value: *nextauth_secret
+              value: "{{ .Values.nextAuthSecret }}"
 
   service:
     # Configure a service for the main application
@@ -112,7 +113,7 @@ common:
       enabled: true
       className: ""
       hosts:
-        - host: *host
+        - host: "{{ .Values.ingressDomain }}"
           paths:
             - path: /
               pathType: Prefix
@@ -121,7 +122,7 @@ common:
                 port: http
       tls:
         - hosts:
-            - *host
+            - "{{ .Values.ingressDomain }}"
 
   # -- Configure persistence settings for the chart under this key.
   persistence:
@@ -130,7 +131,7 @@ common:
       type: persistentVolumeClaim
       # storageClass: ""
       accessMode: ReadWriteOnce
-      size: *volume_size
+      size: "{{ .Values.volumeSize }}"
       advancedMounts:
         main:
           main:
