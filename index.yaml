@@ -3,6 +3,25 @@ entries:
   hoarder:
   - apiVersion: v2
     appVersion: 0.21.0
+    created: "2025-01-21T15:01:58.353534315Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 3.6.1
+    description: Chart for Hoarder
+    digest: 34c8601137511f87ce2019b9d6c3cf540f43b08f9fc3dce6e8339c587a06ca36
+    maintainers:
+    - email: timo@bergen.digital
+      name: bym0
+    name: hoarder
+    sources:
+    - https://github.com/hoarder-app/hoarder
+    type: application
+    urls:
+    - https://github.com/bym0/helm-charts/releases/download/hoarder-0.0.8/hoarder-0.0.8.tgz
+    version: 0.0.8
+  - apiVersion: v2
+    appVersion: 0.21.0
     created: "2025-01-21T14:55:09.049865299Z"
     dependencies:
     - name: common
@@ -129,4 +148,4 @@ entries:
     urls:
     - https://github.com/bym0/helm-charts/releases/download/hoarder-0.0.1/hoarder-0.0.1.tgz
     version: 0.0.1
-generated: "2025-01-21T14:55:09.049911845Z"
+generated: "2025-01-21T15:01:58.353574691Z"
