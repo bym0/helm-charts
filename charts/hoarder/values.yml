@@ -35,9 +35,10 @@ common:
             - name: NEXTAUTH_SECRET
               value: &nextauth_secret "{{ .Values.nextAuthSecret }}"
 
-        # Configure the chrome sidecar
+    chrome:
+      enabled: true
+      containers:
         chrome:
-          enabled: true
           # dependsOn: main
           image:
             # -- image repository
@@ -53,6 +54,8 @@ common:
             - --remote-debugging-port=9222
             - --hide-scrollbars
 
+    meilisearch:
+      containers:
         meilisearch:
           enabled: true
           # dependsOn: main
