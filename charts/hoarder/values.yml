@@ -1,5 +1,9 @@
 ---
 openaiApiKey: ""
+meiliMasterKey: ""
+nextAuthSecret: ""
+ingressDomain: ""
+volumeSize: 10Gi
 
 controllers:
   # Configure the main controller
@@ -23,11 +27,11 @@ controllers:
           - name: DATA_DIR
             value: &data_dir "/data"
           - name: MEILI_MASTER_KEY
-            value: &meili_master_key "master_key"
+            value: &meili_master_key "{{ .Values.meiliMasterKey}}"
           - name: NEXTAUTH_URL
             value: &nextauth_url http://localhost:3000
           - name: NEXTAUTH_SECRET
-            value: &nextauth_secret "nextauthSecret"
+            value: &nextauth_secret "{{ .Values.nextAuthSecret }}"
 
       # Configure the chrome sidecar
       chrome:
@@ -92,7 +96,7 @@ ingress:
   main:
     className: ""
     hosts:
-      - host: &host "example.local"
+      - host: &host "{{ .Values.ingressDomain }}"
         paths:
           - path: /
             pathType: Prefix
@@ -110,7 +114,7 @@ persistence:
     type: persistentVolumeClaim
     # storageClass: ""
     accessMode: ReadWriteOnce
-    size: 10Gi
+    size: "{{ .Values.volumeSize }}"
     advancedMounts:
       main:
         main:
