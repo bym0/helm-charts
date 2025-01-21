@@ -6,6 +6,8 @@ ingressDomain: &host "example.local"
 volumeSize: &volume_size 10Gi
 dataDir: &data_dir "/data"
 
+hoarderImageTag: &hoarder_image_tag "0.21.0"
+
 common:
   controllers:
     # Configure the main controller
@@ -18,7 +20,7 @@ common:
             # -- image repository
             repository: ghcr.io/hoarder-app/hoarder
             # -- image tag
-            tag: 3.6.1
+            tag: *hoarder_image_tag
           # -- environment variables
           env:
             - name: OPENAI_API_KEY
@@ -48,6 +50,7 @@ common:
             tag: 123
           # -- command
           command:
+            - chromium-browser
             - --no-sandbox
             - --disable-gpu
             - --disable-dev-shm-usage
