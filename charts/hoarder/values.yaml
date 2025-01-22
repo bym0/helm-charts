@@ -112,6 +112,7 @@ common:
     main:
       enabled: true
       className: ""
+      # annotations: {}
       hosts:
         - host: "{{ .Values.ingressDomain }}"
           paths:
@@ -121,7 +122,8 @@ common:
                 identifier: main
                 port: http
       tls:
-        - hosts:
+        - secretName: hoarder-tls
+          hosts:
             - "{{ .Values.ingressDomain }}"
 
   # -- Configure persistence settings for the chart under this key.
