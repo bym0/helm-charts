@@ -2,9 +2,7 @@
 
 ## add to helm
 ```bash
-
-helm repo add bym0 https://bym0.github.io/helm-charts/charts/
-
+helm repo add bym0 https://bym0.github.io/helm-charts
 ```
 
 ## list of apps
