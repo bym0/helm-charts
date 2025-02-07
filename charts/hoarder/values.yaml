@@ -6,7 +6,7 @@ ingressDomain: "example.local"
 nextAuthUrl: "http://localhost:3000"
 
 dataDir: "/data"
-hoarderImageTag: "0.21.0"
+hoarderImageTag: "0.22.0"
 
 common:
   controllers:
