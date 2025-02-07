@@ -37,6 +37,19 @@ common:
               value: "{{ .Values.nextAuthUrl }}"
             - name: NEXTAUTH_SECRET
               value: "{{ .Values.nextAuthSecret }}"
+          # -- probes
+          probes:
+            liveness:
+              enabled: true
+              custom: false
+              spec:
+                httpGet:
+                  path: /
+                  port: 3000
+                initialDelaySeconds: 15
+                periodSeconds: 10
+                timeoutSeconds: 5
+                failureThreshold: 3
 
     chrome:
       enabled: true
