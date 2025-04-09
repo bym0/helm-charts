@@ -20,6 +20,21 @@ common:
             capabilities:
               add:
                 - NET_ADMIN
+                - NET_BIND_SERVICE
+                - NET_BROADCAST
+                - NET_RAW
+                - AUDIT_CONTROL
+                - FOWNER
+                - MKNOD
+                - SETGID
+                - SYS_CHROOT
+                - AUDIT_WRITE
+                - DAC_OVERRIDE
+                - FSETID
+                - KILL
+                - SETPCAP
+                - SETFCAP
+                - SETUID
 
   service:
     # Configure a service for the main application
@@ -50,3 +65,11 @@ common:
         main:
           main:
             - path: /storage
+    kvm:
+      enabled: true
+      type: hostPath
+      hostPath: /dev/kvm
+      advancedMounts:
+        main:
+          main:
+            - path: /dev/kvm

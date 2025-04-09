@@ -3,7 +3,7 @@ apiVersion: v2
 name: windows
 description: i found this container and wanted to test windows inside docker
 type: application
-version: 0.1.0
+version: 0.1.1
 appVersion: 0.1.0
 sources:
   - https://github.com/dockur/windows
