@@ -69,6 +69,7 @@ common:
       enabled: true
       type: hostPath
       hostPath: /dev/kvm
+      hostPathType: CharDevice
       advancedMounts:
         main:
           main:
