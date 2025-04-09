@@ -1,6 +1,45 @@
 apiVersion: v1
 entries:
+  discord-log-bot:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-04-09T11:16:50.786759282Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 3.6.1
+    description: my very own discord bot, that logs if someone joins or leaves
+    digest: 420c1da62e5e1210fbd2b1399a065e0d28daec1b0b48261641b75724d149598b
+    maintainers:
+    - email: timo@bergen.digital
+      name: bym0
+    name: discord-log-bot
+    sources:
+    - https://github.com/bym0/discord-log-bot
+    type: application
+    urls:
+    - https://github.com/bym0/helm-charts/releases/download/discord-log-bot-0.1.1/discord-log-bot-0.1.1.tgz
+    version: 0.1.1
   hoarder:
+  - apiVersion: v2
+    appVersion: 0.22.0
+    created: "2025-04-09T11:16:50.900228952Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 3.6.1
+    description: Chart for Hoarder
+    digest: e4e76d7ff389da5024d862889bcab836f19cf7c073155d93fe8523af8c966f64
+    maintainers:
+    - email: timo@bergen.digital
+      name: bym0
+    name: hoarder
+    sources:
+    - https://github.com/hoarder-app/hoarder
+    type: application
+    urls:
+    - https://github.com/bym0/helm-charts/releases/download/hoarder-0.1.4/hoarder-0.1.4.tgz
+    version: 0.1.4
   - apiVersion: v2
     appVersion: 0.22.0
     created: "2025-02-07T23:54:05.458085584Z"
@@ -243,4 +282,4 @@ entries:
     urls:
     - https://github.com/bym0/helm-charts/releases/download/hoarder-0.0.1/hoarder-0.0.1.tgz
     version: 0.0.1
-generated: "2025-02-07T23:54:05.458216467Z"
+generated: "2025-04-09T11:16:50.900317247Z"
