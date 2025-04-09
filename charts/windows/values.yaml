@@ -1,0 +1,52 @@
+---
+common:
+  controllers:
+    # Configure the main controller
+    main:
+      enabled: true
+      containers:
+        # Configure the main application container
+        main:
+          image:
+            # -- image repository
+            repository: dockurr/windows
+            # -- image tag
+            tag: "latest"
+          # -- environment variables
+          env:
+            - name: VERSION
+              value: "11"
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+
+  service:
+    # Configure a service for the main application
+    main:
+      enabled: true
+      controller: main
+      type: ClusterIP
+      ports:
+        http:
+          port: 8006
+          protocol: HTTPS
+        rdptcp:
+          port: 3389
+          protocol: TCP
+        rdpudp:
+          port: 3389
+          protocol: UDP
+
+  # -- Configure persistence settings for the chart under this key.
+  persistence:
+    data:
+      enabled: true
+      type: persistentVolumeClaim
+      storageClass: ""
+      accessMode: ReadWriteOnce
+      size: 32Gi
+      advancedMounts:
+        main:
+          main:
+            - path: /storage
