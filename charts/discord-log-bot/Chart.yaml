@@ -1,0 +1,16 @@
+---
+apiVersion: v2
+name: discord-log-bot
+description: my very own discord bot, that logs if someone joins or leaves
+type: application
+version: 0.1.0
+appVersion: 0.1.0
+sources:
+  - https://github.com/bym0/discord-log-bot
+maintainers:
+  - name: bym0
+    email: timo@bergen.digital
+dependencies:
+  - name: common
+    repository: https://bjw-s.github.io/helm-charts
+    version: 3.6.1

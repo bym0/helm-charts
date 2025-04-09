@@ -1,0 +1,23 @@
+---
+logBotToken: ""
+logBotChannel: ""
+
+common:
+  controllers:
+    # Configure the main controller
+    main:
+      enabled: true
+      containers:
+        # Configure the main application container
+        main:
+          image:
+            # -- image repository
+            repository: ghcr.io/bym0/discord-log-bot
+            # -- image tag
+            tag: "latest-go"
+          # -- environment variables
+          env:
+            - name: LOGBOT_TOKEN
+              value: "{{ .Values.logBotToken }}"
+            - name: LOGBOT_CHANNEL
+              value: "{{ .Values.logBotChannel }}"
