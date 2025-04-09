@@ -285,6 +285,25 @@ entries:
   windows:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2025-04-09T11:51:25.56104898Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 3.6.1
+    description: i found this container and wanted to test windows inside docker
+    digest: 9095f56d4ccd5b6b8adc9374ce1c23662b542bf4eaec5f315c0c02b492dbb86d
+    maintainers:
+    - email: timo@bergen.digital
+      name: bym0
+    name: windows
+    sources:
+    - https://github.com/dockur/windows
+    type: application
+    urls:
+    - https://github.com/bym0/helm-charts/releases/download/windows-0.1.1/windows-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2025-04-09T11:30:00.969092109Z"
     dependencies:
     - name: common
@@ -302,4 +321,4 @@ entries:
     urls:
     - https://github.com/bym0/helm-charts/releases/download/windows-0.1.0/windows-0.1.0.tgz
     version: 0.1.0
-generated: "2025-04-09T11:30:00.969140619Z"
+generated: "2025-04-09T11:51:25.561093904Z"
