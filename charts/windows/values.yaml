@@ -17,6 +17,7 @@ common:
             - name: VERSION
               value: "11"
           securityContext:
+            privileged: true # needed for kvm
             capabilities:
               add:
                 - NET_ADMIN
