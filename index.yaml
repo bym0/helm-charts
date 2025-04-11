@@ -20,6 +20,26 @@ entries:
     urls:
     - https://github.com/bym0/helm-charts/releases/download/discord-log-bot-0.1.1/discord-log-bot-0.1.1.tgz
     version: 0.1.1
+  glance:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-04-11T21:45:04.974895946Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 3.6.1
+    description: glance
+    digest: ad1545117463e1d84b6bbe9a938b007d2c376e9b9d07f42059cddda953583810
+    maintainers:
+    - email: timo@bergen.digital
+      name: bym0
+    name: glance
+    sources:
+    - https://github.com/glanceapp/glance
+    type: application
+    urls:
+    - https://github.com/bym0/helm-charts/releases/download/glance-0.1.0/glance-0.1.0.tgz
+    version: 0.1.0
   hoarder:
   - apiVersion: v2
     appVersion: 0.22.0
@@ -359,4 +379,4 @@ entries:
     urls:
     - https://github.com/bym0/helm-charts/releases/download/windows-0.1.0/windows-0.1.0.tgz
     version: 0.1.0
-generated: "2025-04-09T13:29:06.365026334Z"
+generated: "2025-04-11T21:45:04.974944978Z"
