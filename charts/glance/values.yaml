@@ -4,6 +4,24 @@ common:
     # Configure the main controller
     main:
       enabled: true
+
+      initContainers:
+        init-config:
+          image:
+            repository: busybox
+            tag: "latest"
+          command:
+            - sh
+            - -c
+            - |
+              if [ ! -f /app/config/glance.yml ]; then
+                echo "Config file not found, downloading default config..."
+                wget -O /app/config/glance.yml https://raw.githubusercontent.com/glanceapp/glance/refs/heads/main/docs/glance.yml
+                echo "Default config downloaded successfully"
+              else
+                echo "Config file already exists, skipping download"
+              fi
+
       containers:
         # Configure the main application container
         main:
@@ -25,6 +43,8 @@ common:
       advancedMounts:
         main:
           main:
+            - path: /app/config
+          init-config:
             - path: /app/config
 
   service:
