@@ -1,6 +1,45 @@
 apiVersion: v1
 entries:
+  checkmk:
+  - apiVersion: v2
+    appVersion: 2.3.0
+    created: "2025-05-21T21:31:30.368265247Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s-labs.github.io/helm-charts
+      version: 4.0.1
+    description: checkmk
+    digest: 9f732989b7ffe4e72e1f567a856ca297eefe37ee529f173b1faaf856b4b79d41
+    maintainers:
+    - email: timo@bergen.digital
+      name: bym0
+    name: checkmk
+    sources:
+    - https://docs.checkmk.com/latest/en/introduction_docker.html
+    type: application
+    urls:
+    - https://github.com/bym0/helm-charts/releases/download/checkmk-0.1.0/checkmk-0.1.0.tgz
+    version: 0.1.0
   discord-log-bot:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-05-21T21:31:30.465970309Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s-labs.github.io/helm-charts
+      version: 4.0.1
+    description: my very own discord bot, that logs if someone joins or leaves
+    digest: 3f31ed9001f4b43011dda40c7b6d08c211dfc66f4cd453c0dcda83d011a71b2d
+    maintainers:
+    - email: timo@bergen.digital
+      name: bym0
+    name: discord-log-bot
+    sources:
+    - https://github.com/bym0/discord-log-bot
+    type: application
+    urls:
+    - https://github.com/bym0/helm-charts/releases/download/discord-log-bot-0.1.2/discord-log-bot-0.1.2.tgz
+    version: 0.1.2
   - apiVersion: v2
     appVersion: 0.1.0
     created: "2025-04-09T11:16:50.786759282Z"
@@ -21,6 +60,25 @@ entries:
     - https://github.com/bym0/helm-charts/releases/download/discord-log-bot-0.1.1/discord-log-bot-0.1.1.tgz
     version: 0.1.1
   glance:
+  - apiVersion: v2
+    appVersion: 0.7.10
+    created: "2025-05-21T21:31:30.584665537Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s-labs.github.io/helm-charts
+      version: 4.0.1
+    description: glance
+    digest: 440381ede759ecc6302240d216119fad5691d97bc04ab30d136a3696385d8874
+    maintainers:
+    - email: timo@bergen.digital
+      name: bym0
+    name: glance
+    sources:
+    - https://github.com/glanceapp/glance
+    type: application
+    urls:
+    - https://github.com/bym0/helm-charts/releases/download/glance-0.1.2/glance-0.1.2.tgz
+    version: 0.1.2
   - apiVersion: v2
     appVersion: 0.7.10
     created: "2025-04-11T21:53:25.210137346Z"
@@ -60,6 +118,25 @@ entries:
     - https://github.com/bym0/helm-charts/releases/download/glance-0.1.0/glance-0.1.0.tgz
     version: 0.1.0
   hoarder:
+  - apiVersion: v2
+    appVersion: 0.22.0
+    created: "2025-05-21T21:31:30.704811339Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s-labs.github.io/helm-charts
+      version: 4.0.1
+    description: Chart for Hoarder
+    digest: ebf1a87fda2d65c6797cab5b5b701bb9ae335a261903b455ac3583035358f22b
+    maintainers:
+    - email: timo@bergen.digital
+      name: bym0
+    name: hoarder
+    sources:
+    - https://github.com/hoarder-app/hoarder
+    type: application
+    urls:
+    - https://github.com/bym0/helm-charts/releases/download/hoarder-0.1.5/hoarder-0.1.5.tgz
+    version: 0.1.5
   - apiVersion: v2
     appVersion: 0.22.0
     created: "2025-04-09T11:16:50.900228952Z"
@@ -324,6 +401,25 @@ entries:
   windows:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2025-05-21T21:31:30.865036123Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s-labs.github.io/helm-charts
+      version: 4.0.1
+    description: i found this container and wanted to test windows inside docker
+    digest: a48b396c0b7bdb62a8ebf24eac2285de3a52abc0323e02c2fe77ea271377adbb
+    maintainers:
+    - email: timo@bergen.digital
+      name: bym0
+    name: windows
+    sources:
+    - https://github.com/dockur/windows
+    type: application
+    urls:
+    - https://github.com/bym0/helm-charts/releases/download/windows-0.1.4/windows-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2025-04-09T13:29:06.364975079Z"
     dependencies:
     - name: common
@@ -398,4 +494,4 @@ entries:
     urls:
     - https://github.com/bym0/helm-charts/releases/download/windows-0.1.0/windows-0.1.0.tgz
     version: 0.1.0
-generated: "2025-04-11T21:53:25.210199693Z"
+generated: "2025-05-21T21:31:30.865164623Z"
