@@ -1,12 +1,12 @@
 ---
 apiVersion: v2
-name: discord-log-bot
-description: my very own discord bot, that logs if someone joins or leaves
+name: checkmk
+description: checkmk
 type: application
-version: 0.1.2
-appVersion: 0.1.0
+version: 0.1.0
+appVersion: 2.3.0
 sources:
-  - https://github.com/bym0/discord-log-bot
+  - https://docs.checkmk.com/latest/en/introduction_docker.html
 maintainers:
   - name: bym0
     email: timo@bergen.digital

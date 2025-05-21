@@ -3,7 +3,7 @@ apiVersion: v2
 name: glance
 description: glance
 type: application
-version: 0.1.1
+version: 0.1.2
 appVersion: 0.7.10
 sources:
   - https://github.com/glanceapp/glance
@@ -12,5 +12,5 @@ maintainers:
     email: timo@bergen.digital
 dependencies:
   - name: common
-    repository: https://bjw-s.github.io/helm-charts
-    version: 3.6.1
+    repository: https://bjw-s-labs.github.io/helm-charts
+    version: 4.0.1

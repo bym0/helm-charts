@@ -1,0 +1,79 @@
+---
+common:
+  controllers:
+    # Configure the main controller
+    main:
+      enabled: true
+
+      containers:
+        # Configure the main application container
+        main:
+          image:
+            # -- image repository
+            repository: checkmk/check-mk-raw
+            # -- image tag
+            tag: 2.3.0-latest
+          # -- environment variables
+
+  # -- Configure persistence settings for the chart under this key.
+  persistence:
+    config:
+      enabled: true
+      type: persistentVolumeClaim
+      storageClass: "" # set storageClass
+      accessMode: ReadWriteOnce
+      size: 50Gi
+      advancedMounts:
+        main:
+          main:
+            - path: /omd/sites
+
+    tmpfs:
+      enabled: true
+      type: emptyDir
+      medium: Memory
+      advancedMounts:
+        main:
+          main:
+            - path: /opt/omd/sites/cmk/tmp
+
+    localtime:
+      enabled: true
+      type: hostPath
+      hostPath: /etc/localtime
+      hostPathType: File
+      advancedMounts:
+        main:
+          main:
+            - path: /etc/localtime
+
+  service:
+    # Configure a service for the main application
+    main:
+      enabled: true
+      controller: main
+      type: ClusterIP
+      ports:
+        http:
+          port: 5000
+        httpother:
+          port: 8000
+
+  ingress:
+    # Configure an Ingress for the main application
+    main:
+      enabled: true
+      className: "" # set class
+      annotations: {}
+      hosts:
+        - host: "" # set domain
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                identifier: main
+                port: http
+      tls:
+        - secretName: checkmk-tls
+          hosts:
+            - "" # set domain

@@ -3,7 +3,7 @@ apiVersion: v2
 name: windows
 description: i found this container and wanted to test windows inside docker
 type: application
-version: 0.1.3
+version: 0.1.4
 appVersion: 0.1.0
 sources:
   - https://github.com/dockur/windows
@@ -12,5 +12,5 @@ maintainers:
     email: timo@bergen.digital
 dependencies:
   - name: common
-    repository: https://bjw-s.github.io/helm-charts
-    version: 3.6.1
+    repository: https://bjw-s-labs.github.io/helm-charts
+    version: 4.0.1
