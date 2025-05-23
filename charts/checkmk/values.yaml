@@ -12,15 +12,22 @@ common:
       initContainers:
         init-config:
           image:
-            repository: busybox
-            tag: latest
+            repository: checkmk/check-mk-raw
+            tag: 2.3.0-latest
           command:
             - sh
             - -c
             - |
+              # Create necessary directories
               mkdir -p /omd/sites
-              chown -R 1000:1000 /omd/sites
               mkdir -p /omd/sites/cmk/tmp
+              
+              # Initialize the Checkmk site
+              omd create cmk
+              omd start cmk
+              
+              # Set proper permissions
+              chown -R 1000:1000 /omd/sites
               chown -R 1000:1000 /omd/sites/cmk/tmp
 
       containers:
