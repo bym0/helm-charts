@@ -3,7 +3,7 @@ apiVersion: v2
 name: checkmk
 description: checkmk
 type: application
-version: 0.1.4
+version: 0.1.5
 appVersion: 2.3.0
 sources:
   - https://docs.checkmk.com/latest/en/introduction_docker.html
