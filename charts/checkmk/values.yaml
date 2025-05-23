@@ -1,4 +1,7 @@
 ---
+# Initial password for the cmkadmin user
+checkmkPassword: cmkadmin
+
 common:
   defaultPodOptions:
     securityContext:
@@ -23,6 +26,8 @@ common:
           env:
             - name: TZ
               value: Europe/Berlin
+            - name: CMK_PASSWORD
+              value: "{{ .Values.checkmkPassword }}"
 
   # -- Configure persistence settings for the chart under this key.
   persistence:
