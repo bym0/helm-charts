@@ -3,6 +3,25 @@ entries:
   checkmk:
   - apiVersion: v2
     appVersion: 2.3.0
+    created: "2025-05-23T21:58:35.583702882Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s-labs.github.io/helm-charts
+      version: 4.0.1
+    description: checkmk
+    digest: 62bfb9cfc57aa1d4be75c32ff17aebb261e72292ad63274e77bab3d8c2672b8e
+    maintainers:
+    - email: timo@bergen.digital
+      name: bym0
+    name: checkmk
+    sources:
+    - https://docs.checkmk.com/latest/en/introduction_docker.html
+    type: application
+    urls:
+    - https://github.com/bym0/helm-charts/releases/download/checkmk-0.1.10/checkmk-0.1.10.tgz
+    version: 0.1.10
+  - apiVersion: v2
+    appVersion: 2.3.0
     created: "2025-05-23T21:50:40.097674063Z"
     dependencies:
     - name: common
@@ -665,4 +684,4 @@ entries:
     urls:
     - https://github.com/bym0/helm-charts/releases/download/windows-0.1.0/windows-0.1.0.tgz
     version: 0.1.0
-generated: "2025-05-23T21:50:40.097747911Z"
+generated: "2025-05-23T21:58:35.583799743Z"
