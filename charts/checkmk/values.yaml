@@ -22,9 +22,16 @@ common:
               mkdir -p /omd/sites
               mkdir -p /omd/sites/cmk/tmp
               
-              # Initialize the Checkmk site
-              omd create cmk
-              omd start cmk
+              # Create site user if it doesn't exist
+              if ! id -u cmk > /dev/null 2>&1; then
+                useradd -u 1000 -g 1000 -d /omd/sites/cmk cmk
+              fi
+              
+              # Initialize the Checkmk site if it doesn't exist
+              if [ ! -f /omd/sites/cmk/etc/omd/site.conf ]; then
+                omd create cmk
+                omd start cmk
+              fi
               
               # Set proper permissions
               chown -R 1000:1000 /omd/sites
