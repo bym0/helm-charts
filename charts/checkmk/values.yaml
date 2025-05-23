@@ -33,15 +33,17 @@ common:
                 useradd -u 1000 -g cmk -d /omd/sites/cmk cmk
               fi
               
-              # Initialize the Checkmk site if it doesn't exist
-              if [ ! -f /omd/sites/cmk/etc/omd/site.conf ]; then
-                omd create cmk
-                omd start cmk
-              fi
-              
               # Set proper permissions
               chown -R cmk:cmk /omd/sites
               chown -R cmk:cmk /omd/sites/cmk/tmp
+              
+              # Switch to cmk user and initialize the site
+              su - cmk -c "
+                if [ ! -f /omd/sites/cmk/etc/omd/site.conf ]; then
+                  omd create cmk
+                  omd start cmk
+                fi
+              "
 
       containers:
         # Configure the main application container
