@@ -20,6 +20,8 @@ common:
             - |
               mkdir -p /omd/sites
               chown -R 1000:1000 /omd/sites
+              mkdir -p /omd/sites/cmk/tmp
+              chown -R 1000:1000 /omd/sites/cmk/tmp
 
       containers:
         # Configure the main application container
@@ -46,6 +48,8 @@ common:
         main:
           main:
             - path: /omd/sites
+          init-config:
+            - path: /omd/sites
 
     tmpfs:
       enabled: true
@@ -54,6 +58,8 @@ common:
       advancedMounts:
         main:
           main:
+            - path: /opt/omd/sites/cmk/tmp
+          init-config:
             - path: /opt/omd/sites/cmk/tmp
 
   service:
