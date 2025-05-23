@@ -3,47 +3,13 @@ common:
   defaultPodOptions:
     securityContext:
       fsGroup: 1000
+      runAsUser: 0
+      runAsGroup: 0
 
   controllers:
     # Configure the main controller
     main:
       enabled: true
-
-      initContainers:
-        init-config:
-          image:
-            repository: checkmk/check-mk-raw
-            tag: 2.3.0-latest
-          securityContext:
-            runAsUser: 0
-            runAsGroup: 0
-          command:
-            - sh
-            - -c
-            - |
-              # Create necessary directories
-              mkdir -p /omd/sites
-              mkdir -p /omd/sites/cmk/tmp
-              
-              # Create group and user if they don't exist
-              if ! getent group 1000 > /dev/null; then
-                groupadd -g 1000 cmk
-              fi
-              if ! id -u cmk > /dev/null 2>&1; then
-                useradd -u 1000 -g cmk -d /omd/sites/cmk cmk
-              fi
-              
-              # Set proper permissions
-              chown -R cmk:cmk /omd/sites
-              chown -R cmk:cmk /omd/sites/cmk/tmp
-              
-              # Switch to cmk user and initialize the site
-              su - cmk -c "
-                if [ ! -f /omd/sites/cmk/etc/omd/site.conf ]; then
-                  omd create cmk
-                  omd start cmk
-                fi
-              "
 
       containers:
         # Configure the main application container
@@ -52,7 +18,7 @@ common:
             # -- image repository
             repository: checkmk/check-mk-raw
             # -- image tag
-            tag: 2.3.0-latest
+            tag: 2.4.0-latest
           # -- environment variables
           env:
             - name: TZ
@@ -73,16 +39,16 @@ common:
           init-config:
             - path: /omd/sites
 
-    tmpfs:
-      enabled: true
-      type: emptyDir
-      medium: Memory
-      advancedMounts:
-        main:
-          main:
-            - path: /opt/omd/sites/cmk/tmp
-          init-config:
-            - path: /opt/omd/sites/cmk/tmp
+#    tmpfs:
+#      enabled: true
+#      type: emptyDir
+#      medium: Memory
+#      advancedMounts:
+#        main:
+#          main:
+#            - path: /opt/omd/sites/cmk/tmp
+#          init-config:
+#            - path: /opt/omd/sites/cmk/tmp
 
   service:
     # Configure a service for the main application
