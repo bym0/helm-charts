@@ -41,8 +41,6 @@ common:
         main:
           main:
             - path: /omd/sites
-          init-config:
-            - path: /omd/sites
 
 #    tmpfs:
 #      enabled: true

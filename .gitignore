@@ -3,3 +3,4 @@
 charts/*/charts
 *Chart.lock*
 .lock
+.ansible
