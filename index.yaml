@@ -629,6 +629,23 @@ entries:
   radarr:
   - apiVersion: v2
     appVersion: 4.0.14
+    created: "2025-06-05T19:28:00.863711361Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s-labs.github.io/helm-charts
+      version: 4.0.1
+    description: radarr helm chart
+    digest: dcbb7a08182cac8618925c1b2a23bcaee7abf08b4367e57d9cd19bb473cfc4ad
+    maintainers:
+    - email: timo@bergen.digital
+      name: bym0
+    name: radarr
+    type: application
+    urls:
+    - https://github.com/bym0/helm-charts/releases/download/radarr-0.1.1/radarr-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 4.0.14
     created: "2025-06-05T19:21:52.483595827Z"
     dependencies:
     - name: common
@@ -662,6 +679,23 @@ entries:
     - https://github.com/bym0/helm-charts/releases/download/radarr-0.0.1/radarr-0.0.1.tgz
     version: 0.0.1
   sonarr:
+  - apiVersion: v2
+    appVersion: 5.25.0
+    created: "2025-06-05T19:28:00.987687084Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s-labs.github.io/helm-charts
+      version: 4.0.1
+    description: sonarr helm chart
+    digest: 715b0c027043df4ad7eb89f0d4bc9fff1c497ad33f1abe4c9a9d34d8a3415d42
+    maintainers:
+    - email: timo@bergen.digital
+      name: bym0
+    name: sonarr
+    type: application
+    urls:
+    - https://github.com/bym0/helm-charts/releases/download/sonarr-0.1.1/sonarr-0.1.1.tgz
+    version: 0.1.1
   - apiVersion: v2
     appVersion: 5.25.0
     created: "2025-06-05T19:21:52.617930952Z"
@@ -792,4 +826,4 @@ entries:
     urls:
     - https://github.com/bym0/helm-charts/releases/download/windows-0.1.0/windows-0.1.0.tgz
     version: 0.1.0
-generated: "2025-06-05T19:21:52.61803646Z"
+generated: "2025-06-05T19:28:00.987807079Z"
