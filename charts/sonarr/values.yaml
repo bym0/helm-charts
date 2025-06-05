@@ -82,13 +82,13 @@ common:
           main:
             - path: /config
 
-    # -- Configure nfs settings under this key.
-    nfs: {}
-      # enabled: true
-      # type: nfs
-      # server: 1.1.1.1
-      # path: /volume/nfs
-      # advancedMounts:
-      #   main:
-      #     main:
-      #       - path: /movies
+    # -- Configure nfs settings for the chart under this key.
+    nfs:
+      enabled: true
+      type: nfs
+      server: 100.116.200.106
+      path: /volume1/torr/ser
+      advancedMounts:
+        main:
+          main:
+            - path: /tv

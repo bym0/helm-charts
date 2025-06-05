@@ -3,7 +3,7 @@ apiVersion: v2
 name: radarr
 description: radarr helm chart
 type: application
-version: 0.1.1
+version: 0.1.2
 appVersion: 4.0.14
 maintainers:
   - name: bym0
