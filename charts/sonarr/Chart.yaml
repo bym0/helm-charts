@@ -3,7 +3,7 @@ apiVersion: v2
 name: sonarr
 description: sonarr helm chart
 type: application
-version: 0.0.1
+version: 0.1.0
 appVersion: 5.25.0
 maintainers:
   - name: bym0
