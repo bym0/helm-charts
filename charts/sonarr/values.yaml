@@ -65,7 +65,7 @@ common:
                 identifier: main
                 port: http
       tls:
-        - secretName: radarr-tls
+        - secretName: sonarr-tls
           hosts:
             - "{{ .Values.ingressDomain }}"
 
