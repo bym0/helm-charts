@@ -1,9 +1,6 @@
 ---
 # domain for ingress
 ingressDomain: ""
-# nfs server and path for persistence
-nfsPath: ""
-nfsIP: ""
 
 common:
   name: radarr
@@ -85,12 +82,13 @@ common:
           main:
             - path: /config
 
-    nfs:
-      enabled: true
-      type: nfs
-      server: "{{ .Values.nfsIP }}"
-      path: "{{ .Values.nfsPath }}"
-      advancedMounts:
-        main:
-          main:
-            - path: /movies
+    # -- Configure nfs settings under this key.
+    nfs: {}
+      # enabled: true
+      # type: nfs
+      # server: 1.1.1.1
+      # path: /volume/nfs
+      # advancedMounts:
+      #   main:
+      #     main:
+      #       - path: /movies
