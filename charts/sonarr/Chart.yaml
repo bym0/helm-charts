@@ -1,0 +1,14 @@
+---
+apiVersion: v2
+name: sonarr
+description: sonarr helm chart
+type: application
+version: 0.0.1
+appVersion: 5.25.0
+maintainers:
+  - name: bym0
+    email: timo@bergen.digital
+dependencies:
+  - name: common
+    repository: https://bjw-s-labs.github.io/helm-charts
+    version: 4.0.1

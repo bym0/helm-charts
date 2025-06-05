@@ -1,0 +1,96 @@
+---
+# domain for ingress
+ingressDomain: ""
+# nfs server and path for persistence
+nfsPath: ""
+nfsIP: ""
+
+common:
+  name: sonarr
+
+  controllers:
+    # Configure the main controller
+    main:
+      enabled: true
+      containers:
+        # Configure the main application container
+        main:
+          image:
+            # -- image repository
+            repository: linuxserver/sonarr
+            # -- image tag
+            tag: 4.0.14
+          # -- environment variables
+          env:
+            - name: PUID
+              value: 1000
+            - name: GUID
+              value: 1000
+            - name: TZ
+              value: Europe/Berlin
+          # -- probes
+          probes:
+            liveness:
+              enabled: true
+              custom: false
+              spec:
+                httpGet:
+                  path: /
+                  port: 8989
+                initialDelaySeconds: 15
+                periodSeconds: 10
+                timeoutSeconds: 5
+                failureThreshold: 3
+
+  service:
+    # Configure a service for the main application
+    main:
+      enabled: true
+      controller: main
+      type: ClusterIP
+      ports:
+        http:
+          port: 8989
+
+  ingress:
+    # Configure an Ingress for the main application
+    main:
+      enabled: true
+      className: ""
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+      hosts:
+        - host: "{{ .Values.ingressDomain }}"
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                identifier: main
+                port: http
+      tls:
+        - secretName: radarr-tls
+          hosts:
+            - "{{ .Values.ingressDomain }}"
+
+  # -- Configure persistence settings for the chart under this key.
+  persistence:
+    config:
+      enabled: true
+      type: persistentVolumeClaim
+      # storageClass: ""
+      accessMode: ReadWriteOnce
+      size: 10Gi
+      advancedMounts:
+        main:
+          main:
+            - path: /config
+
+    nfs:
+      enabled: true
+      type: nfs
+      server: "{{ .Values.nfsIP }}"
+      path: "{{ .Values.nfsPath }}"
+      advancedMounts:
+        main:
+          main:
+            - path: /tv
