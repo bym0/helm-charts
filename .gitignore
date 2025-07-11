@@ -4,3 +4,4 @@ charts/*/charts
 *Chart.lock*
 .lock
 .ansible
+.DS_Store

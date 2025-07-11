@@ -1,0 +1,30 @@
+apiVersion: v2
+name: paperless-ngx
+description: "A community-supported supercharged version of paperless: scan, index and archive all your physical documents"
+type: application
+version: 0.25.0
+# renovate datasource=docker depName=ghcr.io/paperless-ngx/paperless-ngx
+appVersion: 2.17.1
+kubeVersion: ">=1.22.0-0"
+keywords:
+  - documents
+  - ocr
+  - paper
+dependencies:
+  - name: common
+    repository: https://bjw-s-labs.github.io/helm-charts
+    version: 4.0.1
+  - name: postgresql
+    version: 14.0.5
+    repository: https://charts.bitnami.com/bitnami
+    condition: postgresql.enabled
+  - name: mariadb
+    version: 20.1.1
+    repository: https://charts.bitnami.com/bitnami
+    condition: mariadb.enabled
+  - name: redis
+    repository: https://charts.bitnami.com/bitnami
+    version: 20.7.0
+    condition: redis.enabled
+sources:
+  - https://github.com/paperless-ngx/paperless-ngx
