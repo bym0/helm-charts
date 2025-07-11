@@ -626,6 +626,41 @@ entries:
     urls:
     - https://github.com/bym0/helm-charts/releases/download/hoarder-0.0.1/hoarder-0.0.1.tgz
     version: 0.0.1
+  paperless-ngx:
+  - apiVersion: v2
+    appVersion: 2.17.1
+    created: "2025-07-11T19:59:59.841326283Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s-labs.github.io/helm-charts
+      version: 4.0.1
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 14.0.5
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 20.1.1
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 20.7.0
+    description: 'A community-supported supercharged version of paperless: scan, index
+      and archive all your physical documents'
+    digest: 47393c7b5f1a404c6278408d65fb7aa6a66a87dbbc3990eea9e80fc6af3d2545
+    keywords:
+    - documents
+    - ocr
+    - paper
+    kubeVersion: '>=1.22.0-0'
+    name: paperless-ngx
+    sources:
+    - https://github.com/paperless-ngx/paperless-ngx
+    type: application
+    urls:
+    - https://github.com/bym0/helm-charts/releases/download/paperless-ngx-0.25.0/paperless-ngx-0.25.0.tgz
+    version: 0.25.0
   radarr:
   - apiVersion: v2
     appVersion: 4.0.14
@@ -894,4 +929,4 @@ entries:
     urls:
     - https://github.com/bym0/helm-charts/releases/download/windows-0.1.0/windows-0.1.0.tgz
     version: 0.1.0
-generated: "2025-06-05T19:58:48.117660847Z"
+generated: "2025-07-11T19:59:59.841492533Z"
