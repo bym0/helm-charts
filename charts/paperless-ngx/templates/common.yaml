@@ -1,10 +1,10 @@
 {{/* Append the hardcoded settings */}}
 {{- define "healthchecks.harcodedValues" -}}
 env:
-  PAPERLESS_TIME_ZONE: {{ .Values.env.TZ }}
-  PAPERLESS_PORT: {{ quote .Values.service.main.ports.http.port }}
+  PAPERLESS_TIME_ZONE: {{ .Values.common.controllers.main.containers.main.env.TZ }}
+  PAPERLESS_PORT: {{ quote .Values.common.service.main.ports.http.port }}
 
-  {{- with .Values.ingress.main }}
+  {{- with .Values.common.ingress.main }}
   {{- if and .enabled .hosts }}
   PAPERLESS_URL: http{{ if .tls }}s{{ end }}://{{ (first .hosts).host }}
   {{- end }}
@@ -44,7 +44,7 @@ env:
   {{- end }}
   {{- end }}
 {{- end -}}
-{{- $_ := merge .Values (include "healthchecks.harcodedValues" . | fromYaml) -}}
+{{- $_ := merge .Values.common.controllers.main.containers.main (include "healthchecks.harcodedValues" . | fromYaml) -}}
 
 {{/* Render the templates */}}
-{{ include "bjw-s.common.loader.all" . }}
+{{- include "bjw-s.common.loader.all" . }}
